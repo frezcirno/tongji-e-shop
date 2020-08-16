@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>同济大排-济商城</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/product.css') }}">
+    <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/product.js') }}"></script>
+</head>
+
+<body>
+    <div class="app">
+        @@include('header.html')
+        <div class="product-name">
+            <div class="product-nav">
+                <div class="container">
+                    <h2>{{product.name}}</h2>
+                    <div class="nav">
+                        <a href="#buy" onclick="buy()">立即购买</a>
+                        <span class="sep">|</span>
+                        <a href="#desc">商品概述</a>
+                        <span class="sep">|</span>
+                        <a href="#argu">商品参数</a>
+                        <!-- <span class="sep">|</span>
+                        <a href="#review">商品评价</a> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="desc" class="detail">
+            <div class="container">
+                <div class="detail-img">
+                    <div class="img-img">
+                        {% for slide in product.slides %}
+                        <div class="img-slide">
+                            <img src="{{ url_for('static', filename='image/'+slide.url) }}" alt="">
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="img-pagination">
+                        {% for slide in product.slides %}
+                        <span class="pagination-bullet"></span>
+                        {% endfor %}
+                    </div>
+                    <div class="img-button-prev"></div>
+                    <div class="img-button-next"></div>
+                </div>
+                <div class="detail-right">
+                    <h2 class="detail-header">{{product.name}}</h2>
+                    <p class="detail-desp">{{product.desc}}</p>
+                    <div class="detail-price">
+                        <span>{{product.price}}元</span>
+                    </div>
+                    <div class="line"></div>
+                    <div class="detail-num">
+
+                    </div>
+                    <div class="detail-total">
+                        <ul class="total-list">
+                            {% for subitem in [product] %}
+                            <li class="total-item">
+                                <span class="item-name">{{subitem.name}}</span>
+                                <span class="item-price">{{subitem.price}}</span>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        <div class="total-price">总计：{{product.price}}元</div>
+                    </div>
+                    <div class="detail-button">
+                        <div class="detail-addcart"><a href="javascript:void(0);" onclick="addcart()">加入购物车</a></div>
+                        <div class="detail-buynow">
+                            <a href="javascript:void(0);" onclick="buy()">立即购买</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="argu" class="product-detail">
+            {% for image in product.images %}
+            <div class="detail-item">
+                <img src="{{ url_for('static', filename='image/'+image.url) }}" alt="">
+            </div>
+            {% endfor %}
+        </div>
+
+        @@include('footer.html')
+    </div>
+</body>
+
+</html>

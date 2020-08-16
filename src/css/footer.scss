@@ -1,0 +1,60 @@
+.footer {
+    text-align: center;
+    height    : 80px;
+    margin-top: -80px;
+}
+
+.lang {
+    li {
+        display: inline-block;
+
+    }
+
+    a {
+        padding: 0 10px;
+        display: inline-block;
+        color  : #757575;
+    }
+
+    .lang-item {
+
+        &-active {
+            color: #333;
+        }
+    }
+}
+
+.sep {
+    margin     : 0 .3em;
+    color      : #424242;
+    font-family: sans-serif;
+}
+
+.site-info {
+    padding: 10px;
+}
+
+
+.site-footer {
+    .my-link {
+        padding      : 27px 0;
+        border-bottom: 1px solid #e0e0e0;
+
+        li {
+            float      : left;
+            width      : 19.8%;
+            height     : 25px;
+            border-left: 1px solid #e0e0e0;
+            text-align : center;
+
+            a {
+                font-size  : 16px;
+                line-height: 25px;
+            }
+
+            &:first-child {
+                border-left: 0;
+            }
+        }
+    }
+}

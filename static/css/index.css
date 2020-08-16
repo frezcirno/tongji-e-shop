@@ -1,0 +1,296 @@
+body {
+  font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei, Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+  color: #333;
+  background-color: #fff;
+  min-width: 1226px;
+}
+
+.sep {
+  margin: 0 0.3em;
+  color: #424242;
+  font-family: sans-serif;
+}
+
+.site-category {
+  display: block !important;
+}
+
+.site-category .category-list {
+  border: 0 !important;
+  background: rgba(105, 101, 101, 0.6) !important;
+}
+
+.site-category .category-item .title {
+  color: #fff !important;
+}
+
+.home-hero {
+  position: relative;
+  z-index: 10;
+  margin-bottom: 26px;
+}
+
+.home-hero .swiper-container {
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  list-style: none;
+  padding: 0;
+  z-index: 1;
+}
+
+.home-hero .hero-swiper {
+  position: relative;
+  height: 460px;
+  overflow: hidden;
+}
+
+.home-hero .hero-sub {
+  margin-top: 14px;
+}
+
+.home-hero .swiper-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  transition-property: transform;
+  box-sizing: content-box;
+  transform: translateZ(0);
+  transition-duration: 0ms;
+}
+
+.home-hero .swiper-slide {
+  width: 1226px;
+  opacity: 1;
+  transition: all 0.3s;
+  height: 460px;
+  text-align: right;
+  cursor: pointer;
+  position: absolute;
+}
+
+.home-hero .swiper-slide a {
+  display: block;
+}
+
+.home-hero .swiper-slide img {
+  display: block;
+  width: 1226px;
+  height: 460px;
+  object-fit: cover;
+}
+
+.home-hero .swiper-pagination {
+  width: 400px;
+  left: auto;
+  right: 30px;
+  bottom: 20px;
+  text-align: right;
+  position: absolute;
+  transition: opacity 0.3s;
+  transform: translateZ(0);
+  z-index: 10;
+}
+
+.home-hero .swiper-pagination-bullet {
+  margin: 0 4px;
+  width: 6px;
+  height: 6px;
+  border: 2px solid #fff;
+  border-color: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.4);
+  opacity: 1;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.home-hero .swiper-pagination-bullet-active, .home-hero .swiper-pagination-bullet:hover {
+  background: rgba(255, 255, 255, 0.4);
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.home-hero .swiper-button {
+  position: absolute;
+  top: 50%;
+  width: 41px;
+  height: 69px;
+  margin-top: -35px;
+  z-index: 10;
+  cursor: pointer;
+  outline: none;
+}
+
+.home-hero .swiper-button-prev {
+  left: 234px;
+  background: url(../image/icon-slides.png) no-repeat -84px 50%;
+  right: auto;
+}
+
+.home-hero .swiper-button-next {
+  background: url(../image/icon-slides.png) no-repeat -125px 50%;
+  right: 0;
+  left: auto;
+}
+
+.home-hero .swiper-button:hover {
+  color: #fff;
+  background-color: #42424293;
+}
+
+.home-main {
+  padding-top: 4px;
+  padding-bottom: 12px;
+  background: #f5f5f5;
+}
+
+.home-main .home-brick-box {
+  margin-bottom: 8px;
+}
+
+.home-main .box-header {
+  position: relative;
+  height: 58px;
+}
+
+.home-main .box-header .title {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 200;
+  line-height: 58px;
+  color: #333;
+}
+
+.home-main .more {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.home-main .more-link {
+  font-size: 16px;
+  line-height: 58px;
+  color: #424242;
+  transition: all 0.4s;
+}
+
+.home-main .more-link .icon {
+  width: 15px;
+  height: 15px;
+  padding: 4px;
+  margin-left: 8px;
+  border-radius: 16px;
+  background: #b0b0b0;
+  fill: #fff;
+  vertical-align: middle;
+  transition: all 0.4s;
+}
+
+.home-main .more-link:hover {
+  color: #ff6700;
+}
+
+.home-main .more-link:hover .icon {
+  background-color: #ff6700;
+}
+
+.home-main .box-content {
+  margin-left: -14px;
+}
+
+.home-main .brick-promo-list li {
+  width: 100%;
+  height: 100%;
+}
+
+.home-main .brick-promo-list {
+  height: 614px;
+}
+
+.home-main .brick-promo-list .brick-item a,
+.home-main .brick-promo-list .brick-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.home-main .brick-list {
+  height: 614px;
+}
+
+.home-main .brick-item {
+  transition: all 0.2s linear;
+}
+
+.home-main .brick-item:hover {
+  z-index: 2;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  transform: translate3d(0, -2px, 0);
+}
+
+.home-main .brick-list {
+  margin: 0 0 -14px -14px;
+}
+
+.home-main .brick-list .brick-item {
+  position: relative;
+  z-index: 1;
+  float: left;
+  width: 234px;
+  margin-left: 14px;
+  margin-bottom: 14px;
+  background: #fff;
+  height: 260px;
+  padding: 20px 0;
+}
+
+.home-main .brick-list .brick-item-large {
+  height: 614px;
+}
+
+.home-main .brick-list .brick-item-medium {
+  height: 260px;
+}
+
+.home-main .brick-list .brick-item .figure {
+  margin: auto;
+  margin-top: 1px;
+  margin-bottom: 18px;
+  text-align: center;
+}
+
+.home-main .brick-list .brick-item .figure img {
+  width: 170px;
+  height: 170px;
+}
+
+.home-main .brick-list .brick-item .title {
+  margin: 0 10px 2px;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  font-size: 14px;
+  font-weight: 400;
+  color: #333;
+}
+
+.home-main .brick-list .brick-item .desc {
+  margin: 0 10px 10px;
+  height: 18px;
+  font-size: 12px;
+  color: #b0b0b0;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.home-main .brick-list .brick-item .price {
+  margin: 0 10px 14px;
+  text-align: center;
+  color: #ff6700;
+}

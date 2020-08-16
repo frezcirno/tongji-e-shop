@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>注册账号-济商城</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+    <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="full-box">
+            <div class="container">
+                <div class="reg-logo">
+                    <a class="logo" href="{{ url_for('index') }}"></a>
+                </div>
+                <div class="reg-title">
+                    <h4 class="title-big">注册账号</h4>
+                </div>
+                <div class="reg-box">
+                    <h4 class="title-normal">用户名</h4>
+                    <input id="name" class="input" type="text" name="name" placeholder="请输入用户名">
+                    <h4 class="title-normal">邮箱</h4>
+                    <input id="email" class="input" type="email" name="email" placeholder="请输入邮箱">
+                    <h4 class="title-normal">密码</h4>
+                    <input id="password" class="input" type="password" name="password" placeholder="请输入密码">
+                    <h4 class="title-normal">确认密码</h4>
+                    <input id="password1" class="input" type="password" name="password" placeholder="请再次输入密码">
+                    <div id="error" class="dis_box"><span></span></div>
+                    <input class="button" type="button" onclick="register(event)" value="立即注册">
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="lang clearfix">
+                <ul class="lang-list">
+                    <li><a class="lang-item lang-item-active" href="#">简体</a></li>
+                    <span class="sep">|</span>
+                    <li><a class="lang-item" href="#">繁体</a></li>
+                    <span class="sep">|</span>
+                    <li><a class="lang-item" href="#">English</a></li>
+                </ul>
+            </div>
+            <p class="site-info">
+                <span>
+                    济商城 | 同心同德同舟楫 济人济事济天下 | 黑ICP备XXXXXXXX号
+                </span>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

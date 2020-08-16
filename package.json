@@ -1,0 +1,25 @@
+{
+  "name": "tongji-e-shop",
+  "version": "1.0.0",
+  "description": "tongji-e-shop front end",
+  "dependencies": {
+    "gulp-sass": "^4.1.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.2.2",
+    "gulp-watch": "^5.0.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "dev": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FrezCirno/tongji-e-shop.git"
+  },
+  "author": "frezcirno",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/FrezCirno/tongji-e-shop/issues"
+  },
+  "homepage": "https://github.com/FrezCirno/tongji-e-shop#readme"
+}

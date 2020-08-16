@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的购物车-济商城</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/cart.css') }}">
+    <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/cart.js') }}"></script>
+</head>
+
+<body>
+    <div class="app">
+        <div class="header">
+            <div class="cart-header-nologin" style="display: none;">
+                <div class="container clearfix">
+                    <div class="header-logo">
+                        <a class="logo" href="{{ url_for('index') }}"></a>
+                    </div>
+                    <div class="header-title">
+                        <h2>我的购物车</h2>
+                    </div>
+                    <div class="header-user">
+                        <a class="link" href="javascript:void(0);">登录</a>
+                        <span class="sep">|</span>
+                        <a class="link" href="javascript:void(0);">注册</a>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-header">
+                <div class="container clearfix">
+                    <div class="header-logo">
+                        <a class="logo" href="{{ url_for('index') }}"></a>
+                    </div>
+                    <div class="header-title">
+                        <h2>我的购物车</h2>
+                    </div>
+                    <div class="header-user">
+                        <span class="user">
+                            <a class="user-name" href="javascript:void(0);">
+                                <span class="name">{{user.name}}
+                                    <svg class="iconfont-arrow-down-mini" viewBox="0 0 1024 1024" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" width="10" height="10">
+                                        <path
+                                            d="M548.352 730.624l394.24-360.96c21.504-19.456 23.04-53.248 3.072-74.24-19.456-21.504-53.248-23.04-74.24-3.072l-358.912 328.704L153.088 291.84c-21.504-19.456-54.784-17.92-74.24 3.584-19.456 21.504-17.92 54.784 3.584 74.24l394.752 360.448c1.024 0.512 1.536 1.536 2.56 2.048 19.456 16.896 49.152 16.384 68.608-1.536z">
+                                        </path>
+                                    </svg>
+                                </span>
+                            </a>
+                            <div class="user-popup">
+                                <ul class="user-list">
+                                    <li><a class="user-item-logout" href="javascript:void(0);"
+                                            onclick="logout()">退出登录</a></li>
+                                </ul>
+                            </div>
+                        </span>
+                        <span class="sep">|</span>
+                        <a class="user-order" href="{{ url_for('order') }}">我的订单</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="cart-main">
+            <div class="container">
+                <div class="cart-list-empty" style="display: none;">
+                    <h2>您的购物车还是空的！</h2>
+                    <p>登录后将显示您之前加入的商品</p>
+                    <a class="btn-login" href="{{ url_for('login') }}">立即登录</a>
+                    <a class="btn-shopping" href="{{ url_for('index') }}">马上去购物</a>
+                </div>
+                <div class="cart-list">
+                    <div class="list-head clearfix">
+                        <div class="col col-check">
+                            <input class="check-box" type="checkbox" onchange="recheck(event)"
+                                onclick="selall(event.target.checked)">全选</div>
+                        <div class="col col-img">&nbsp;</div>
+                        <div class="col col-name">商品名称</div>
+                        <div class="col col-price">单价</div>
+                        <div class="col col-num">数量</div>
+                        <div class="col col-total">小计</div>
+                        <div class="col col-action">操作</div>
+                    </div>
+                    <div class="list-body">
+                        {% for cart in carts %}
+                        <div class="cart-item-warp">
+                            <div class="cart-item clearfix">
+                                <div class="col col-check"><input class="check-box" type="checkbox"
+                                        onchange="recheck(event)"></div>
+                                <div class="col col-img"><img
+                                        src="{{ url_for('static', filename='image/'+cart.item.image) }}" height="80"
+                                        width="80"></div>
+                                <div class="col col-name">
+                                    <h3 class="name">{{cart.item.name}}</h3>
+                                </div>
+                                <div class="col col-price"><span>{{cart.item.price}}</span>元</div>
+                                <div class="col col-num">
+                                    <div class="num-box">
+                                        <a class="minus" href="javascript:void(0);" onclick="minus(event)">-</a>
+                                        <input class="num" value="{{cart.count}}"
+                                            onchange="calc(event.target.parentNode.parentNode.parentNode)"></input>
+                                        <a class="plus" href="javascript:void(0);" onclick="plus(event)">+</a>
+                                    </div>
+                                </div>
+                                <div class="col col-total"><span></span>元</div>
+                                <div class="col col-action"><a href="javascript:void(0);" onclick="del(event)">×</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <div class="space"></div>
+                    <div class="list-foot clearfix">
+                        <div class="section-left">
+                            <a href="/index.html" class="back-shopping">继续购物</a>
+                            <span class="cart-total">共 <span>1</span> 件商品，已选择 <span>1</span> 件</span>
+                        </div>
+                        <span class="total-price">合计：<em>89</em>元
+                            <a href="javascript:void(0);" class="btn">去结算</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @@include('footer.html')
+    </div>
+</body>
+
+</html>

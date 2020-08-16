@@ -1,0 +1,123 @@
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+p,
+pre,
+dl,
+dd,
+ol,
+ul,
+li,
+a,
+span,
+caption,
+th,
+td,
+form,
+fieldset,
+legend,
+input,
+button,
+textarea,
+address {
+    margin : 0;
+    padding: 0;
+}
+
+ol,
+ul {
+    list-style: none;
+}
+
+a {
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration : none;
+    color           : #757575;
+
+    &:hover,
+    &:active {
+        outline: 0;
+    }
+}
+
+img {
+    border: 0;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+    color : inherit;
+    font  : inherit;
+    margin: 0;
+}
+
+input {
+    line-height: normal;
+}
+
+input[type=search] {
+    box-sizing: content-box;
+}
+
+button,
+input[type=button],
+input[type=reset],
+input[type=submit] {
+    cursor: pointer;
+}
+
+.hide {
+    display: none !important;
+}
+
+
+.clearfix:before,
+.clearfix:after {
+    content: "";
+    display: table;
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+.container {
+    width       : 1226px;
+    margin-right: auto;
+    margin-left : auto;
+}
+
+@keyframes rubberBandAnimation {
+    0% {
+        transform: scale3d(1, 1, 1);
+    }
+
+    35% {
+        transform: scale3d(1.25, .75, 1);
+    }
+
+    45% {
+        transform: scale3d(.75, 1, 1);
+    }
+
+    60% {
+        transform: scale3d(1.2, .8, 1);
+    }
+
+    75% {
+        transform: scale3d(1.05, .95, 1);
+    }
+
+    100% {
+        transform: scale3d(1, 1, 1);
+    }
+}

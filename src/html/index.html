@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>济商城-TJMall</title>
+  <link rel="shortcut icon" href="image/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/span.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+  <script src="{{ url_for('static', filename='js/index.js') }}"></script>
+</head>
+
+<body>
+  <div id="app">
+    @@include('./header.html')
+    <!-- 轮播图部分 -->
+    <div class="home-hero">
+      <div class="container">
+        <!-- 轮播图 -->
+        <div class="hero-swiper swiper-container">
+          <!-- 轮播图片 -->
+          <div class="swiper-wrapper">
+            {% for slide in slides %}
+            <div class="swiper-slide">
+              <a href="{{slide.href}}">
+                <img src="{{slide.url}}">
+              </a>
+            </div>
+            {% endfor %}
+          </div>
+          <!-- 小点点 -->
+          <div class="swiper-pagination">
+            <a class="swiper-pagination-bullet swiper-pagination-bullet-active" href="javascript:void(0);"
+              onclick="swipeTo(0)"></a>
+            <a class="swiper-pagination-bullet" href="javascript:void(0);" onclick="swipeTo(1)"></a>
+            <a class="swiper-pagination-bullet" href="javascript:void(0);" onclick="swipeTo(2)"></a>
+            <a class="swiper-pagination-bullet" href="javascript:void(0);" onclick="swipeTo(3)"></a>
+            <a class="swiper-pagination-bullet" href="javascript:void(0);" onclick="swipeTo(4)"></a>
+          </div>
+          <!-- 前 -->
+          <div class="swiper-button swiper-button-prev" onclick="swipePrev()"></div>
+          <!-- 后 -->
+          <div class="swiper-button swiper-button-next" onclick="swipeNext()"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 轮播图下面，正文部分 -->
+    <div class="home-main">
+      <div class="container">
+        <div class="home-brick-box">
+          <!-- 标题栏 -->
+          <div class="box-header">
+            <h2 class="title">同济纪念</h2>
+            <div class="more">
+              <a class="more-link" href="javascript:void(0);">查看全部<svg t="1592041976987" class="icon"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                  </path>
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- 产品展示图块 -->
+          <div class="box-content clearfix">
+            <!-- 左侧大图 -->
+            <div class="span4">
+              <ul class="brick-promo-list">
+                <li class="brick-item brick-item-large">
+                  <a href="{{ url_for('product') }}">
+                    <img src="{{ url_for('static', filename='image/mmxp.jpg') }}">
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <!-- 右侧2x4小图 -->
+            <div class="span16">
+              <ul class="brick-list">
+                {% for item in list1 %}
+                <li class="brick-item brick-item-medium">
+                  <a href="{{ '%s/%d' % (url_for('product'),item._id) }}">
+                    <div class="figure">
+                      <img src="{{ url_for('static', filename='image/'+item.image) }}">
+                    </div>
+                    <h3 class="title">{{item.name}}</h3>
+                    <p class="desc">{{item.desc}}</p>
+                    <p class="price">{{item.price}}元</p>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="home-brick-box">
+          <!-- 标题栏 -->
+          <div class="box-header">
+            <h2 class="title">吃在同济</h2>
+            <div class="more">
+              <a class="more-link" href="javascript:void(0);">查看全部<svg t="1592041976987" class="icon"
+                  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                  </path>
+                  </path>
+                </svg>
+              </a>
+            </div>
+          </div>
+          <!-- 产品展示图块 -->
+          <div class="box-content clearfix">
+            <!-- 2x5小图 -->
+            <div class="span20">
+              <ul class="brick-list">
+                {% for item in list2 %}
+                <li class="brick-item brick-item-medium">
+                  <a href="{{ '%s/%d' % (url_for('product'),item._id) }}">
+                    <div class="figure"><img src="{{ url_for('static', filename='image/'+item.image) }}"></div>
+                    <h3 class="title">{{item.name}}</h3>
+                    <p class="desc">{{item.desc}}</p>
+                    <p class="price">{{item.price}}元</p>
+                  </a>
+                </li>
+                {% endfor %}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    @@include('footer.html')
+
+  </div>
+</body>
+
+</html>

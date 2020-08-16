@@ -1,0 +1,343 @@
+<link rel="stylesheet" href="{{ url_for('static', filename='css/header.css') }}">
+<script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+<script src="{{ url_for('static', filename='js/header.js') }}"></script>
+<!-- 顶部导航 -->
+<div class="home-header">
+   <!-- 全局导航(长条) -->
+   <div class="site-topbar">
+      <div class="container clearfix">
+         <!-- 左侧导航 -->
+         <div class="topbar-nav">
+            <a href="{{ url_for('index') }}">济商城</a>
+            <span class="sep">|</span>
+            <a href="{{ url_for('cart') }}">购物车</a>
+            <span class="sep">|</span>
+            <a href="{{ url_for('order') }}">我的订单</a>
+            <span class="sep">|</span>
+            <a href="//www.tongji.edu.cn">同济大学</a>
+            <span class="sep">|</span>
+            <a href="//4m3.tongji.edu.cn">4m3教务</a>
+            <span class="sep">|</span>
+            <a href="//1.tongji.edu.cn">1tongji</a>
+            <span class="sep">|</span>
+            <a href="//press.tongji.edu.cn">同济出版社</a>
+            <span class="sep">|</span>
+            <a href="//myportal.tongji.edu.cn">MyPortal</a>
+         </div>
+         <!-- 右侧购物车 -->
+         <div class="topbar-cart">
+            <!-- 购物车按钮 -->
+            <a class="cart-mini" href="{{ url_for('cart') }}">
+               <em class="icon-cart"></em>
+               购物车
+               <span class="cart-num">（{{ user.cartcount }}）</span>
+            </a>
+            <!-- 购物车popup -->
+            <!-- <div class="cart-menu">
+               <div class="menu-content">
+                  <div class="loading">
+                     <div class="loader"></div>
+                  </div>
+                  <div class="cart-list">
+
+                  </div>
+                  <div class="cart-total"></div>
+                  <div class="msg msg-error hide"></div>
+                  <div class="msg msg-empty hide">购物车里面还没有商品，赶紧选购吧！</div>
+               </div>
+            </div> -->
+         </div>
+         <!-- 右侧个人信息 -->
+         <div class="topbar-info">
+            {% if user %}
+            <a href="{{ url_for('cart') }}">{{user.name}}</a>
+            <span class="sep">|</span>
+            <a href="{{ url_for('order') }}">我的订单</a>
+            <span class="sep">|</span>
+            <a href="javascript:void(0);" onclick="logout()">退出登录</a>
+            {% else %}
+            <a href="{{ url_for('login') }}">登录</a>
+            <span class="sep">|</span>
+            <a href="{{ url_for('register') }}">注册</a>
+            {% endif %}
+         </div>
+      </div>
+   </div>
+   <!-- 页内导航 -->
+   <div class="site-header">
+      <div class="container">
+         <div class="header-logo">
+            <a class="logo" href="{{ url_for('index') }}"></a>
+         </div>
+         <div class="header-nav">
+            <ul class="nav-list">
+               <li class="nav-item nav-category">
+                  <a class="link" href="javascript:void(0);"><span class="text">全部商品分类</span></a>
+                  <!-- 全部商品分类下拉导航栏 -->
+                  <div class="site-category">
+                     <ul class="category-list">
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">特色美食 小吃<svg class="icon" viewBox="0 0 1024 1024"
+                                 version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg>
+                           </a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[0] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">生活 出行 自行车<svg class="icon"
+                                 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg>
+                           </a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[1] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">住宿 日常用品<svg class="icon" viewBox="0 0 1024 1024"
+                                 version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg></a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[2] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">科技 人工智能<svg class="icon" viewBox="0 0 1024 1024"
+                                 version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg></a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[3] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">学习 考研 当学霸<svg class="icon"
+                                 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg></a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[4] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">图书 影音 同济出版<svg class="icon"
+                                 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg></a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[5] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                        <li class="category-item">
+                           <a class="title" href="javascript:void(0);">场馆预约 活动申请<svg class="icon"
+                                 viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                                 <path
+                                    d="M434.944 790.624l-45.248-45.248L623.04 512l-233.376-233.376 45.248-45.248L713.568 512z">
+                                 </path>
+                              </svg></a>
+                           <!-- 鼠标hover在导航栏条目上时, 右侧的popup -->
+                           <div class="item-children">
+                              {% for column in headerlist[6] %}
+                              <ul class="children-list">
+                                 {% for item in column %}
+                                 <li>
+                                    <a class="link" href="{{ url_for('product') + '/%d' % item._id }}">
+                                       <img class="thumb" src="{{ url_for('static', filename='image/'+item.image) }}"
+                                          alt="" width="40" height="40">
+                                       <span class="text">{{item.name}}</span>
+                                    </a>
+                                 </li>
+                                 {% endfor %}
+                              </ul>
+                              {% endfor %}
+                           </div>
+                        </li>
+                     </ul>
+                  </div>
+               </li>
+               <li class="nav-item">
+                  <a class="link" href="javascript:void(0);"><span class="text">经典美食</span></a>
+                  <!-- 鼠标hover时弹出的二级导航条的数据从这里取得 -->
+               </li>
+               <li class="nav-item">
+                  <a class="link" href="javascript:void(0);"><span class="text">热门教材</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="link" href="javascript:void(0);"><span class="text">烧烤大排档</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="link" href="javascript:void(0);"><span class="text">樱花大道</span></a>
+               </li>
+               <li class="nav-item">
+                  <a class="link" href="javascript:void(0);"><span class="text">文化创意</span></a>
+               </li>
+            </ul>
+         </div>
+         <div class="header-search">
+            <form class="search-form" action="" method="GET">
+               <input class="form-text" type="search" placeholder="同济大排" autocomplete="off"
+                  onkeypress="return event.keyCode!=13;" onkeyup="if(event.keyCode==13) {onsearch(event);}">
+               <a class="form-btn" href="javascript:void(0);" onclick="onsearch(event)">
+                  <svg class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                     <path
+                        d="M192 448c0-141.152 114.848-256 256-256s256 114.848 256 256-114.848 256-256 256-256-114.848-256-256z m710.624 409.376l-206.88-206.88A318.784 318.784 0 0 0 768 448c0-176.736-143.264-320-320-320S128 271.264 128 448s143.264 320 320 320a318.784 318.784 0 0 0 202.496-72.256l206.88 206.88 45.248-45.248z">
+                     </path>
+                  </svg>
+               </a>
+
+            </form>
+         </div>
+      </div>
+   </div>
+   <!-- 二级导航, 鼠标hover在页内导航上时会显示出来 -->
+   <div class="site-nav-menu slide-up" style="display: none;">
+      <div class="container">
+         <!-- 此处ul会随着一级导航被替换 -->
+         <ul class="children-list">
+            <li class="first">
+               <a href="/javascript:void(0);">
+                  <div class="figure">
+                     <img src="" alt="辣条">
+                  </div>
+                  <div class="title"></div>
+                  <p class="price">5毛一袋</p>
+               </a>
+            </li>
+            <li>
+               <a href="/javascript:void(0);">
+                  <div class="figure">
+                     <img src="" alt="辣条">
+                  </div>
+                  <div class="title"></div>
+                  <p class="price">5毛一袋</p>
+               </a></li>
+            <li>
+               <a href="/javascript:void(0);">
+                  <div class="figure">
+                     <img src="" alt="辣条">
+                  </div>
+                  <div class="title"></div>
+                  <p class="price">5毛一袋</p>
+               </a></li>
+            <li>
+               <a href="/javascript:void(0);">
+                  <div class="figure">
+                     <img src="" alt="辣条">
+                  </div>
+                  <div class="title"></div>
+                  <p class="price">5毛一袋</p>
+               </a></li>
+            <li>
+               <a href="/javascript:void(0);">
+                  <div class="figure">
+                     <img src="" alt="辣条">
+                  </div>
+                  <div class="title"></div>
+                  <p class="price">5毛一袋</p>
+               </a></li>
+            <li>
+               <a href="/javascript:void(0);">
+                  <div class="figure">
+                     <img src="" alt="辣条">
+                  </div>
+                  <div class="title"></div>
+                  <p class="price">5毛一袋</p>
+               </a></li>
+         </ul>
+      </div>
+   </div>
+</div>

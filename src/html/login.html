@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>登录-济商城</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/common.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/footer.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <script src="{{ url_for('static', filename='js/ajax.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/login.js') }}"></script>
+</head>
+
+<body>
+  <div class="app">
+    <div class="header clearfix">
+      <div class="header-logo">
+        <a class="logo" href="{{ url_for('index') }}"></a>
+      </div>
+    </div>
+    <div class="body-layout">
+      <div class="layout">
+        <div class="login-box">
+          <div class="nav-tab">
+            <a class="nav-item nav-item-active" href="">邮箱登录</a><span class="sep"></span><a class="nav-item"
+              href="">手机登录</a>
+          </div>
+          <div class="tab tab-active">
+            <div class="container">
+              <input id="email" class="login-email" type="email" placeholder="请输入邮箱">
+              <input id="password" class="login-password" type="password" placeholder="请输入密码">
+              <div id="error" class="dis_box"></div>
+              <input class="login-btn" type="button" value="登录" onclick="login(event)">
+              <div class="login-extra">
+                <div class="login-remember">
+                  <input type="checkbox" name="" id="">
+                  记住密码
+                </div>
+                <div class="login-problem">
+                  <a href="{{ url_for('register') }}">立即注册</a>
+                  <span class="sep">|</span>
+                  <a href="javascript:void(0);">忘记密码？</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab"></div>
+        </div>
+      </div>
+    </div>
+    <div class="panel">
+      <a href="{{ url_for('index') }}"></a>
+    </div>
+    <div class="footer">
+      <div class="lang clearfix">
+        <ul class="lang-list">
+          <li><a class="lang-item lang-item-active" href="#">简体</a></li>
+          <span class="sep">|</span>
+          <li><a class="lang-item" href="#">繁体</a></li>
+          <span class="sep">|</span>
+          <li><a class="lang-item" href="#">English</a></li>
+        </ul>
+      </div>
+      <p class="site-info">
+        <span>
+          济商城 | 同心同德同舟楫 济人济事济天下 | 黑ICP备XXXXXXXX号
+        </span>
+      </p>
+    </div>
+  </div>
+</body>
+
+</html>

@@ -1,0 +1,262 @@
+body {
+  font: 14px/1.5 Helvetica Neue, Helvetica, Arial, Microsoft Yahei,
+    Hiragino Sans GB, Heiti SC, WenQuanYi Micro Hei, sans-serif;
+  color: #333;
+  background-color: #fff;
+  min-width: 1226px;
+}
+
+.container {
+  width: 1226px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.sep {
+  margin: 0 0.3em;
+  color: #424242;
+  font-family: sans-serif;
+}
+
+.product-name {
+  position: relative;
+  z-index: 4;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.07);
+}
+
+.product-nav {
+  position: relative;
+  height: 63px;
+  width: 100%;
+  margin-top: 0;
+  color: #616161;
+
+  h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 60px;
+    color: #424242;
+    float: left;
+  }
+
+  .nav {
+    float: right;
+    margin: 17px 0 0 0;
+  }
+
+  a {
+    color: #616161;
+  }
+
+  .sep {
+    margin: 0 0.5em;
+    color: #e0e0e0;
+  }
+}
+
+.detail .container {
+  display: flex;
+  justify-content: center;
+  padding-top: 32px;
+  padding-bottom: 12px;
+  min-height: 560px;
+}
+
+.detail-img {
+  width: 606px;
+  position: relative;
+  top: 0;
+
+  .img-img {
+    position: relative;
+    width: 560px;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    transition-property: transform;
+    box-sizing: content-box;
+    margin: 0 auto;
+    padding: 0;
+    overflow: hidden;
+    list-style: none;
+  }
+
+  .img-slide {
+    position: absolute;
+    width: 560px;
+    opacity: 1;
+    transition-duration: 0ms;
+
+    img {
+      width: 560px;
+      height: 560px;
+    }
+  }
+
+  .img-pagination {
+    position: absolute;
+    text-align: center;
+    transition: opacity 0.3s;
+    transform: translateZ(0);
+    z-index: 10;
+    left: 0;
+    width: 100%;
+    bottom: 20px;
+  }
+
+  .pagination-bullet {
+    background: #ccc;
+    width: 50px;
+    border-radius: 0;
+    border: 0;
+    height: 3px;
+    cursor: pointer;
+    margin: 0 4px;
+
+    &-active {
+      background: #a3a3a3;
+    }
+  }
+}
+
+.detail-right {
+  flex: 1;
+  margin-left: 20px;
+
+  h2 {
+    margin: 0;
+    padding: 0;
+    font-size: 24px;
+    font-weight: 400;
+    color: #212121;
+  }
+
+  .detail-desp {
+    color: #b0b0b0;
+    margin: 0;
+    padding: 0;
+    padding-top: 0px;
+    padding-top: 8px;
+    line-height: 1.5;
+  }
+
+  .detail-price {
+    display: block;
+    font-size: 18px;
+    line-height: 1;
+    color: #ff6700;
+    padding: 12px 0 10px;
+
+    span {
+      display: inline-block;
+    }
+  }
+
+  .line {
+    margin-top: 12px;
+    border-bottom: 1px solid #e0e0e0;
+  }
+
+  .detail-button {
+    margin: 10px 0 20px 0;
+  }
+
+  .detail-total {
+    background: #f9f9fa;
+    padding: 30px;
+    margin-bottom: 30px;
+  }
+
+  .total-item {
+    list-style: none;
+    line-height: 30px;
+    color: #616161;
+
+    .item-price {
+      float: right;
+    }
+  }
+
+  .total-price {
+    color: #ff6700;
+    font-size: 24px;
+    padding-top: 20px;
+  }
+
+  .detail-addcart {
+    display: inline-block;
+    margin-right: 10px;
+
+    a {
+      display: inline-block;
+      border: 1px solid #b0b0b0;
+      border-color: #ff6700;
+      background: #fff;
+      color: #ff6700;
+      width: 298px;
+      height: 52px;
+      line-height: 52px;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+
+  .detail-buynow {
+    display: inline-block;
+
+    a {
+      display: inline-block;
+      border: 1px solid #b0b0b0;
+      border-color: #ff6700;
+      background: #fff;
+      color: #ff6700;
+      width: 140px;
+      height: 52px;
+      line-height: 52px;
+      font-size: 16px;
+      text-align: center;
+    }
+  }
+}
+
+.detail-item {
+  position: relative;
+  height: 773px;
+  width: 100%;
+  overflow: hidden;
+  margin: 0 auto;
+
+  img {
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate3d(-50%, 0, 0);
+    height: 100%;
+    border: 0;
+  }
+}
+
+.site-footer {
+  .my-link {
+    padding: 27px 0;
+    border-bottom: 1px solid #e0e0e0;
+
+    li {
+      float: left;
+      width: 19.8%;
+      height: 25px;
+      border-left: 1px solid #e0e0e0;
+      font-size: 16px;
+      line-height: 25px;
+      text-align: center;
+
+      &:first-child {
+        border-left: 0;
+      }
+    }
+  }
+}

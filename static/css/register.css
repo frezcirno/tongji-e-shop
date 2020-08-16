@@ -1,0 +1,128 @@
+@charset "UTF-8";
+html,
+body {
+  height: 100%;
+}
+
+body {
+  background: #f9f9f9;
+  color: #666;
+  overflow-y: auto;
+  font-size: 14px;
+  font-family: arial, "Hiragino Sans GB", "Microsoft YaHei", "微軟正黑體", "儷黑 Pro", sans-serif;
+}
+
+a {
+  color: #46639c;
+}
+
+input {
+  background: none;
+  border: 0 none;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #3b3b3b;
+  font-weight: normal;
+}
+
+.app {
+  width: 100%;
+  height: 100%;
+}
+
+.full-box {
+  min-height: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container {
+  width: 854px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 40px 0;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 40px;
+}
+
+.reg-logo {
+  padding-bottom: 40px;
+  display: block;
+}
+
+.logo {
+  width: 49px;
+  height: 48px;
+  margin: 0 auto;
+  display: block;
+  cursor: default;
+  background-image: url(../image/tx.jpg);
+  background-size: 55px;
+}
+
+.reg-title {
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+.title-big {
+  font-size: 30px;
+  font-weight: normal;
+  color: #333;
+  line-height: 1.5;
+}
+
+.reg-box {
+  width: 332px;
+  padding: 30px 0;
+  line-height: 20px;
+  margin: 0 auto;
+}
+
+.reg-box .title-normal {
+  padding-bottom: 5px;
+  color: #333;
+  font-weight: normal;
+}
+
+.reg-box .input {
+  height: 20px;
+  width: 310px;
+  line-height: 20px;
+  padding: 10px;
+  display: inline-block;
+  border: 1px solid #e8e8e8;
+  margin-bottom: 15px;
+}
+
+.reg-box .input-err {
+  border: 1px solid #f66 !important;
+}
+
+.reg-box .dis_box {
+  color: #f66;
+}
+
+.reg-box .button {
+  width: 330px;
+  height: 42px;
+  margin: 0 auto;
+  margin-top: 15px;
+  line-height: 42px;
+  text-align: center;
+  font-size: 14px;
+  display: block;
+  cursor: pointer;
+  overflow: hidden;
+  background-color: #ff6700;
+  margin-top: 15px;
+  border: 1px solid rgba(186, 186, 186, 0.3);
+  color: #fff;
+}
