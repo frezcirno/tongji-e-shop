@@ -3,6 +3,7 @@ import json
 import random
 from datetime import datetime, timedelta
 
+from gevent.pywsgi import WSGIServer
 from flask import Flask, request, render_template, session, redirect, url_for, make_response, jsonify
 from flask_sqlalchemy import SQLAlchemy
 
@@ -222,4 +223,5 @@ def not_foundPage(error):
 
 
 if __name__ == '__main__':
-    app.run()
+    httpserver = WSGIServer(('', 8000), app)
+    httpserver.serve_forever()
