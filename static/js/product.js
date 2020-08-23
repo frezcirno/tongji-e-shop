@@ -39,16 +39,18 @@
 function buy() {
     ajax({
         type: "POST",
-        url: "/api/buy",
-        data: {
-            itemid: window.location.href.split('/').pop(),
-            count: 1
-        },
+        url: "/api/addorder",
+        contentType: 'application/json',
+        rawdata: JSON.stringify({
+            items: [{
+                id: window.location.href.split('/').pop(),
+                count: 1
+            }]
+        }),
         success(res) {
-            console.log("成功");
+            window.location.href = res.location;
         },
         fail(err) {
-            console.log("失败")
         }
     })
 }

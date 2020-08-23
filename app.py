@@ -149,12 +149,20 @@ def order():
     _id = request.args.get('id')
     # order = Order.query.filter(User._id == session['id']).first()
     # if not _id:
-        # _id = order._id
+    # _id = order._id
     orderItem = OrderItem.query.filter(OrderItem.userid == session['id']).all()
     orderItemShow = []
     for oditem in orderItem:
-        itemShow = Item.query.filter(Item._id == oditem.itemid).first()
-        itemShow.count = oditem.count
+        item = Item.query.filter(Item._id == oditem.itemid).first()
+        if not item:
+            continue
+        itemShow = {
+            'id': item._id,
+            'name': item.name,
+            'image': item.image,
+            'price': item.price,
+            'count': oditem.count
+        }
         orderItemShow.append(itemShow)
     headerlist = [[Item.query.offset(random.randint(0, 13)).limit(random.randint(3, 6)).all()
                    for col in range(random.randint(2, 4))] for i in range(7)]
@@ -219,7 +227,7 @@ def api_addcart():
         return jsonify({'status': 'error', 'location': url_for('login')}), 400
     itemid = request.form.get('itemid')
     count = float(request.form.get('count'))
-    exist = Cart.query.filter(Cart.userid == session['id'] and Cart.itemid == itemid).first()
+    exist = Cart.query.filter(Cart.userid == session['id']).filter(Cart.itemid == itemid).first()
     if exist:
         exist.count += count
     else:
@@ -233,8 +241,8 @@ def api_addcart():
 def api_delcart():
     if 'id' not in session or not User.query.get(session['id']):
         return jsonify({'status': 'error', 'location': url_for('login')}), 400
-    Cart.query.filter(Cart.userid == session['id'] and Cart.itemid == itemid).delete()
-    Cart.query.filter(Cart.userid == session['id'] and Cart.itemid == itemid).delete()
+    itemid = request.form.get('itemid')
+    Cart.query.filter(Cart.userid == session['id']).filter(Cart.itemid == itemid).delete()
     db.session.commit()
     return jsonify({'status': 'ok'})
 
@@ -250,9 +258,9 @@ def api_addorder():
     for item in items:
         orderItem = OrderItem(userid=session['id'], itemid=item.get('id'), count=item.get('count'))
         db.session.add(orderItem)
-        cart = Cart.query.filter(Cart.userid == session['id'] and Cart.itemid == item.get('id')).delete()
+        cart = Cart.query.filter(Cart.userid == session['id']).filter(Cart.itemid == item.get('id')).delete()
     db.session.commit()
-    return jsonify({'status': 'ok'})
+    return jsonify({'status': 'ok', 'location': url_for('order')})
 
 
 # @app.route('/api/order')
