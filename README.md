@@ -2,7 +2,7 @@
 
 > 🌐 [同济商城 | tongji-e-shop](http://katty.top:8000)
 
-> 🎥 [展示视频 | Intro Video]()
+> 🎥 [展示视频 | Intro Video](./video.mp4)
 
 [TOC]
 
