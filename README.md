@@ -4,7 +4,7 @@
 
 ## Demo
 
-项目已部署, 地址: [katty.top:8000](katty.top:8000)
+项目已部署, 地址: [http://katty.top:8000](http://katty.top:8000)
 
 ## 代码组织
 

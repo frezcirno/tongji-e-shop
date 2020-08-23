@@ -1,8 +1,9 @@
 
 function ajax(options = {}) {
-    let { url, type, data, success, fail } = options;
+    let { url, type, data, success, fail, contentType, rawdata } = options;
     type = (type || "GET").toUpperCase();
-    let params = toParams(data);
+    contentType = contentType || "application/x-www-form-urlencoded"
+    let params = rawdata || toParams(data);
 
     let xhr = new XMLHttpRequest();
     xhr.onreadystatechange = () => {
@@ -20,7 +21,7 @@ function ajax(options = {}) {
         xhr.send();
     } else {
         xhr.open(type, url);
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.setRequestHeader('Content-Type', contentType);
         xhr.send(params);
     }
 }

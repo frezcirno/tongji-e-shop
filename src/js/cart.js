@@ -14,13 +14,50 @@ function selall(checked) {
     })
 }
 
+function order() {
+    let items = document.querySelectorAll(".cart-item")
+    items = Array.prototype.filter.call(items, function (node) {
+        return node.querySelector('.check-box').checked;
+    })
+    items = Array.prototype.map.call(items, function (node) {
+        return {
+            id: Number(node.attributes["item-id"].value),
+            count: Number(node.querySelector('.num').value)
+        }
+    })
+    ajax({
+        type: "POST",
+        url: "/api/addorder",
+        contentType: 'application/json',
+        rawdata: JSON.stringify({ items }),
+        success(res) {
+            window.location.href = res.location;
+        },
+        fail(err) {
+            console.log(err);
+        }
+    })
+}
+
 function del(e) {
-    e = e.target;
-    e = e.parentNode.parentNode.parentNode;
-    e.remove();
-    resum();
-    recount();
-    recheck();
+    e = e.target.parentNode.parentNode;
+
+    var itemid = Number(e.attributes["item-id"].value)
+
+    ajax({
+        type: "POST",
+        url: "/api/delcart",
+        data: { itemid },
+        success(res) {
+            e.remove();
+            resum();
+            recount();
+            recheck();
+        },
+        fail(err) {
+        }
+    })
+
 }
 
 function minus(e) {

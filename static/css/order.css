@@ -122,3 +122,167 @@ body {
   text-align: center;
   color: #b0b0b0;
 }
+
+.cart-list .list-head,
+.cart-list .list-body,
+.cart-list .list-foot {
+  background-color: #fff;
+}
+
+.cart-list .col-check {
+  width: 110px;
+}
+
+.cart-list .check-box {
+  color: #fff;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  line-height: 18px;
+  border: 1px solid #e0e0e0;
+  margin-left: 24px;
+  margin-right: 15px;
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  top: -1px;
+}
+
+.cart-list .check-box::checked {
+  border-color: #ff6700;
+  background-color: #ff6700;
+}
+
+.cart-list .col-img {
+  width: 120px;
+}
+
+.cart-list .col-name {
+  width: 380px;
+}
+
+.cart-list .col-price {
+  width: 140px;
+  padding-right: 18px;
+  text-align: center;
+  color: #424242;
+}
+
+.cart-list .col-num {
+  width: 150px;
+  text-align: center;
+  color: #424242;
+}
+
+.cart-list .col-total {
+  width: 120px;
+  padding-right: 81px;
+  text-align: right;
+}
+
+.cart-list .col-action {
+  width: 80px;
+  text-align: center;
+}
+
+.list-head {
+  height: 70px;
+  line-height: 70px;
+  padding-right: 26px;
+  color: #424242;
+}
+
+.list-head .col {
+  float: left;
+}
+
+.list-body .cart-item-warp {
+  padding: 15px 26px 15px 0;
+  border-top: 1px solid #e0e0e0;
+}
+
+.list-body .cart-item {
+  display: table-row;
+}
+
+.list-body .col {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.list-body .col-img {
+  height: 80px;
+  width: 80px;
+  padding-right: 40px;
+  overflow: hidden;
+}
+
+.list-body .name {
+  width: 380px;
+  margin: 0;
+  line-height: 1;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-size: 18px;
+  font-weight: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.list-body .col-price {
+  font-size: 16px;
+}
+
+.list-body .num-box {
+  width: 148px;
+  height: 38px;
+  border: 1px solid #e0e0e0;
+  text-align: center;
+  background-color: #fff;
+  position: relative;
+}
+
+.list-body .num-box a {
+  float: left;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  color: #757575;
+  font-size: 20px;
+  transition: all 0.3s;
+}
+
+.list-body .num-box input {
+  float: left;
+  width: 72px;
+  height: 38px;
+  line-height: 38px;
+  padding: 0;
+  border-width: 0;
+  color: #424242;
+  font-size: 16px;
+  text-align: center;
+}
+
+.list-body .col-total {
+  color: #ff6700;
+  font-size: 16px;
+}
+
+.list-body .col-action a {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  text-align: center;
+  border-radius: 12px;
+  color: #757575;
+  font-size: 16px;
+  transition: all 0.3s;
+}
+
+.list-body .col-action a:hover {
+  background-color: #ff6700;
+  color: #fff;
+}

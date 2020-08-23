@@ -29,8 +29,12 @@
             <!-- 购物车按钮 -->
             <a class="cart-mini" href="{{ url_for('cart') }}">
                <em class="icon-cart"></em>
+               {% if user %}
                购物车
                <span class="cart-num">（{{ user.cartcount }}）</span>
+               {% else %}
+               <span class="cart-num">未登录</span>
+               {% endif %}
             </a>
             <!-- 购物车popup -->
             <!-- <div class="cart-menu">
