@@ -1,6 +1,6 @@
 # Tongji-e-shop - **纯原生**实现基本电商平台
 
-> 🌐 [同济商城 | tongji-e-shop](http://katty.top:8000)
+> 🌐 [部署地址 | 7c00h.xyz/tongji-e-shop](http://7c00h.xyz/tongji-e-shop)
 
 > 🎥 [展示视频 | Intro Video](./video.mp4)
 
