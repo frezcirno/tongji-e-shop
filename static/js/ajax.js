@@ -1,6 +1,7 @@
 
 function ajax(options = {}) {
     let { url, type, data, success, fail, contentType, rawdata } = options;
+    url = '/tongji-e-shop' + url;
     type = (type || "GET").toUpperCase();
     contentType = contentType || "application/x-www-form-urlencoded"
     let params = rawdata || toParams(data);
