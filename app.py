@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
-import os
-import json
 import random
 from datetime import datetime, timedelta
-
-from gevent.pywsgi import WSGIServer
 from flask import Flask, request, render_template, session, redirect, url_for, make_response, jsonify
 from flask_sqlalchemy import SQLAlchemy
+import sqlalchemy
 
 app = Flask(__name__)
 
@@ -74,8 +71,10 @@ class OrderItem(db.Model):
     item = db.relationship("Item", backref=db.backref("the_Orderitem"))
     count = db.Column(db.Float, nullable=False)
 
-
-db.create_all()
+try:
+    db.create_all()
+except sqlalchemy.exc.OperationalError:
+    pass
 import init
 
 @app.route('/')
@@ -296,5 +295,6 @@ def not_foundPage(error):
 
 
 if __name__ == '__main__':
+    from gevent.pywsgi import WSGIServer
     httpserver = WSGIServer(('', 8000), app)
     httpserver.serve_forever()

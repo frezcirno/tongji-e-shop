@@ -1,6 +1,6 @@
 # Tongji-e-shop - **纯原生**实现基本电商平台
 
-> 🌐 [同济商城 | tongji-e-shop](http://katty.top:8000)
+> 🌐 [同济商城 | tongji-e-shop](https://tongji-e-shop.herokuapp.com/)
 
 > 🎥 [展示视频 | Intro Video](./video.mp4)
 
@@ -82,7 +82,7 @@
 
 - **远程部署**
 
-  > 部署地址 http://katty.top:8000/
+  > 部署地址 https://tongji-e-shop.herokuapp.com/
 
 ## 界面设计
 
